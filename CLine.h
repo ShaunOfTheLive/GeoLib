@@ -1,16 +1,16 @@
-#ifndef CLINE_H
-#define CLINE_H
+#ifndef CLINESEGMENT_H
+#define CLINESEGMENT_H
 
 class Angle;
-class Line
+class LineSegment
 {
   Point point1;
   Point point2;
   double slope;
 public:
-  Line(Point, Point);
-  Line(Point, double length1, double orientation);
-  Line(Point, double length1, Angle orientation);
+  LineSegment(Point, Point);
+  LineSegment(Point, double length1, double orientation);
+  LineSegment(Point, double length1, Angle orientation);
   Point getPoint1() const;
   Point getPoint2() const;
   void setPoint1(Point);
@@ -22,7 +22,7 @@ public:
   
   void print();
   friend ostream&
-    operator<<(ostream& os, const Line& l);
+    operator<<(ostream& os, const LineSegment& l);
 };
 
 #endif
