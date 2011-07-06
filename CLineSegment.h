@@ -11,15 +11,17 @@ public:
   LineSegment(Point, Point);
   LineSegment(Point, double length1, double orientation);
   LineSegment(Point, double length1, Angle orientation);
+  Point[] getPoints() const;
   Point getPoint1() const;
   Point getPoint2() const;
+  void setPoints(Point[] pa);
   void setPoint1(Point);
   void setPoint2(Point);
   double getSlope() const;
   double getOrientation() const;
   Angle getOrientationA() const;
   double getLength() const;
-  
+
   void print();
   friend ostream&
     operator<<(ostream& os, const LineSegment& l);

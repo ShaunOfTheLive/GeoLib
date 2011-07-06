@@ -11,6 +11,8 @@ using std::endl;
 #define M_PI           3.14159265358979323846
 #endif
 
+
+/* constructors */
 LineSegment::LineSegment(Point p1, Point p2) :
   point1(p1), point2(p2), slope((point2.getY()-point1.getY())/(point2.getX()-point1.getX()))
 {
@@ -26,6 +28,15 @@ LineSegment::LineSegment(Point p1, double length1, Angle orientation) :
 {
 }
 
+/* getters */
+Point[] LineSegment::getPoints() const
+{
+  Point[] ret = new Point[2];
+  ret[0] = point1;
+  ret[1] = point2;
+  return ret;
+}
+
 Point LineSegment::getPoint1() const
 {
   return point1;
@@ -34,6 +45,13 @@ Point LineSegment::getPoint1() const
 Point LineSegment::getPoint2() const
 {
   return point2;
+}
+
+/* setters */
+void LineSegment::setPoints(Point[] pa)
+{
+  point1 = pa[0];
+  point2 = pa[1];
 }
 
 void LineSegment::setPoint1(Point p1)
@@ -46,6 +64,7 @@ void LineSegment::setPoint2(Point p2)
   point2 = p2;
 }
 
+/* getters */
 double LineSegment::getSlope() const
 {
   return slope;
