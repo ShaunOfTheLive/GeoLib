@@ -1,0 +1,101 @@
+# depslib dependency file v1.0
+1309629645 source:d:\shill\documents\programming\cpp\geolib\cangle.cpp
+	"CAngle.h"
+	<cmath>
+
+1310003898 d:\shill\documents\programming\cpp\geolib\cangle.h
+
+1310004019 source:d:\shill\documents\programming\cpp\geolib\clinesegment.cpp
+	"CPoint.h"
+	"CLineSegment.h"
+	"CAngle.h"
+	<cmath>
+	<iostream>
+
+1310002467 d:\shill\documents\programming\cpp\geolib\cpoint.h
+	<iostream>
+	"CAngle.h"
+
+1310004186 d:\shill\documents\programming\cpp\geolib\clinesegment.h
+	<vector>
+	"CPoint.h"
+
+1310003057 source:d:\shill\documents\programming\cpp\geolib\cparallelogram.cpp
+	"CParallelogram.h"
+
+1310003318 d:\shill\documents\programming\cpp\geolib\cparallelogram.h
+	"CPoint.h"
+
+1310003941 source:d:\shill\documents\programming\cpp\geolib\cpoint.cpp
+	"CPoint.h"
+	"CAngle.h"
+	<iostream>
+
+1310004329 source:d:\shill\documents\programming\cpp\geolib\ctriangle.cpp
+	"CTriangle.h"
+	"CLineSegment.h"
+	<iostream>
+	<cmath>
+
+1310004019 d:\shill\documents\programming\cpp\geolib\ctriangle.h
+	"CPoint.h"
+	"CAngle.h"
+	"CLineSegment.h"
+
+1309629645 source:d:\shill\documents\programming\cpp\geolib\angletest.cpp
+	<iostream>
+	"CAngle.h"
+
+1310004079 source:d:\shill\documents\programming\cpp\geolib\linetest.cpp
+	"CPoint.h"
+	"CLineSegment.h"
+	"CAngle.h"
+	"CTriangle.h"
+	<iostream>
+
+1310010325 source:d:\shill\documents\programming\cpp\geolib\main.cpp
+	<iostream>
+	<vector>
+	"CPoint.h"
+	"CAngle.h"
+	"CLineSegment.h"
+	"CTriangle.h"
+	"tests.h"
+
+1310004611 source:d:\shill\documents\programming\cpp\geolib\printtest.cpp
+	"CPoint.h"
+	"CLineSegment.h"
+	"CAngle.h"
+	"CTriangle.h"
+	<iostream>
+
+1310004993 d:\shill\documents\programming\cpp\geolib\linesegmenttest2.cpp
+
+1310005216 d:\shill\documents\programming\cpp\geolib\printtest.cpp
+	"CPoint.h"
+	"CAngle.h"
+	"CLineSegment.h"
+	"CTriangle.h"
+
+1310007480 source:d:\shill\documents\programming\cpp\geolib\testangle.cpp
+
+1310007480 source:d:\shill\documents\programming\cpp\geolib\testlinesegment1.cpp
+
+1310007480 source:d:\shill\documents\programming\cpp\geolib\testlinesegment2.cpp
+
+1310007480 source:d:\shill\documents\programming\cpp\geolib\testprint.cpp
+
+1310010309 d:\shill\documents\programming\cpp\geolib\tests.h
+	"testAngle.cpp"
+	"testLineSegment1.cpp"
+	"testLineSegment2.cpp"
+	"testPrint.cpp"
+
+1310007480 d:\shill\documents\programming\cpp\geolib\testangle.cpp
+
+1310007480 d:\shill\documents\programming\cpp\geolib\testlinesegment1.cpp
+
+1310010401 d:\shill\documents\programming\cpp\geolib\testlinesegment2.cpp
+
+1310007480 d:\shill\documents\programming\cpp\geolib\testprint.cpp
+
