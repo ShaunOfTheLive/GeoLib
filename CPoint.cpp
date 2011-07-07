@@ -1,13 +1,11 @@
 #include "CPoint.h"
+#include "CAngle.h"
 #include <iostream>
 using std::cout;
 
-class Angle;
-
 Point::Point(double x, double y) :
-  x(x), y(y)
+  x(x), y(y), r(0), th(Angle::radians(0)), polar(false)
 {
-  polar = false;
 }
 
 double Point::getX() const

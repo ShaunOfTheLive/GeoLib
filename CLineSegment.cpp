@@ -29,12 +29,12 @@ LineSegment::LineSegment(Point p1, double length1, Angle orientation) :
 }
 
 /* getters */
-Point[] LineSegment::getPoints() const
+vector<Point> LineSegment::getPoints() const
 {
-  Point[] ret = new Point[2];
-  ret[0] = point1;
-  ret[1] = point2;
-  return ret;
+  vector<Point> pts;
+  pts.push_back(point1);
+  pts.push_back(point2);
+  return pts;
 }
 
 Point LineSegment::getPoint1() const
@@ -48,10 +48,16 @@ Point LineSegment::getPoint2() const
 }
 
 /* setters */
-void LineSegment::setPoints(Point[] pa)
+void LineSegment::setPoints(vector<Point> pts)
 {
-  point1 = pa[0];
-  point2 = pa[1];
+  point1 = pts[0];
+  point2 = pts[1];
+}
+
+void LineSegment::setPoints(Point p1, Point p2)
+{
+  point1 = p1;
+  point2 = p2;
 }
 
 void LineSegment::setPoint1(Point p1)

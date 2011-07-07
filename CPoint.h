@@ -3,7 +3,7 @@
 #include <iostream>
 using std::ostream;
 
-class Angle;
+#include "CAngle.h"
 
 class Point
 {
@@ -15,7 +15,7 @@ class Point
 public:
   /* cartesian co-ordinates */
   Point(double x, double y);
-  
+
   double getX() const;
   double getY() const;
   void setX(double x);

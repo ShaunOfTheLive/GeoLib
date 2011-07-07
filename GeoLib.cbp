@@ -11,6 +11,7 @@
 				<Option object_output="obj\Debug\" />
 				<Option type="1" />
 				<Option compiler="gcc" />
+				<Option projectCompilerOptionsRelation="0" />
 				<Compiler>
 					<Add option="-g" />
 				</Compiler>
@@ -42,10 +43,24 @@
 		<Unit filename="CPoint.h" />
 		<Unit filename="CTriangle.cpp" />
 		<Unit filename="CTriangle.h" />
-		<Unit filename="angleTest.cpp" />
-		<Unit filename="lineTest.cpp" />
 		<Unit filename="main.cpp" />
-		<Unit filename="printTest.cpp" />
+		<Unit filename="testAngle.cpp">
+			<Option compile="0" />
+			<Option link="0" />
+		</Unit>
+		<Unit filename="testLineSegment1.cpp">
+			<Option compile="0" />
+			<Option link="0" />
+		</Unit>
+		<Unit filename="testLineSegment2.cpp">
+			<Option compile="0" />
+			<Option link="0" />
+		</Unit>
+		<Unit filename="testPrint.cpp">
+			<Option compile="0" />
+			<Option link="0" />
+		</Unit>
+		<Unit filename="tests.h" />
 		<Extensions>
 			<code_completion />
 			<debugger />

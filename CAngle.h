@@ -20,7 +20,7 @@ public:
   const Angle operator+(const Angle &other) const;
   const Angle operator-(const Angle &other) const;
 private:
-  Angle(double radians);
+  Angle(double radians); /* constructor is private to force use of radians or degrees function */
 };
 
 #endif
