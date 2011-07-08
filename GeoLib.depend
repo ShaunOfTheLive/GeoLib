@@ -1,7 +1,8 @@
 # depslib dependency file v1.0
-1310010581 source:d:\shill\documents\programming\cpp\geolib\cangle.cpp
+1310092289 source:d:\shill\documents\programming\cpp\geolib\cangle.cpp
 	"CAngle.h"
 	<cmath>
+	<iostream>
 
 1310010581 d:\shill\documents\programming\cpp\geolib\cangle.h
 
@@ -53,9 +54,10 @@
 	"CTriangle.h"
 	<iostream>
 
-1310090363 source:d:\shill\documents\programming\cpp\geolib\main.cpp
+1310092649 source:d:\shill\documents\programming\cpp\geolib\main.cpp
 	<iostream>
 	<vector>
+	<cmath>
 	"CPoint.h"
 	"CAngle.h"
 	"CLineSegment.h"
@@ -85,17 +87,17 @@
 
 1310007480 source:d:\shill\documents\programming\cpp\geolib\testprint.cpp
 
-1310090314 d:\shill\documents\programming\cpp\geolib\tests.h
+1310092655 d:\shill\documents\programming\cpp\geolib\tests.h
 	"testAngle.cpp"
 	"testLineSegment1.cpp"
 	"testLineSegment2.cpp"
 	"testPrint.cpp"
 
-1310089691 d:\shill\documents\programming\cpp\geolib\testangle.cpp
+1310092729 d:\shill\documents\programming\cpp\geolib\testangle.cpp
 
-1310085342 d:\shill\documents\programming\cpp\geolib\testlinesegment1.cpp
+1310091705 d:\shill\documents\programming\cpp\geolib\testlinesegment1.cpp
 
-1310085352 d:\shill\documents\programming\cpp\geolib\testlinesegment2.cpp
+1310091704 d:\shill\documents\programming\cpp\geolib\testlinesegment2.cpp
 
-1310085358 d:\shill\documents\programming\cpp\geolib\testprint.cpp
+1310091704 d:\shill\documents\programming\cpp\geolib\testprint.cpp
 

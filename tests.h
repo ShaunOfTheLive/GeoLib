@@ -5,6 +5,8 @@
 #define TEST_ALL 1023
 #define TESTS_AMT 4
 
+#define EPSILON 0.000001
+
 #define TESTS (TEST_ALL & ~TEST_LINESEGMENT1)
 
 #define TEST_FAILED 0
@@ -16,10 +18,12 @@ char func_names[][20] = {"Angle addition test", "Line segment test 1", "Line seg
 char res_strings[][20] = {"FAILED", "PASSED", "INACTIVE", "UNDEFINED"};
 
 void tinit(int num) {
-  cout << func_names[num] << ": ";
+  cout << "* " << func_names[num] << ": " << endl;
 }
 void tresult(int ret) {
+  cout << "* Result: ";
   cout << res_strings[ret] << endl;
+  cout << "**********" << endl;
 }
 
 typedef int (*testFunc)();
