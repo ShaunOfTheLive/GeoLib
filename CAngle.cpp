@@ -1,7 +1,8 @@
 #include "CAngle.h"
 #include <cmath>
 
-/* TODO: preserve degrees */
+/* TODO: preserve angle type (degrees, radians) */
+/* TODO: allow addition using a double, using the current angle type */
 
 #include <iostream>
 using std::cout; using std::endl;

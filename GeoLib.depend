@@ -1,44 +1,44 @@
 # depslib dependency file v1.0
-1310092289 source:d:\shill\documents\programming\cpp\geolib\cangle.cpp
+1310154412 source:d:\shill\documents\programming\cpp\geolib\cangle.cpp
 	"CAngle.h"
 	<cmath>
 	<iostream>
 
-1310010581 d:\shill\documents\programming\cpp\geolib\cangle.h
+1310077281 d:\shill\documents\programming\cpp\geolib\cangle.h
 
-1310010581 source:d:\shill\documents\programming\cpp\geolib\clinesegment.cpp
+1310152216 source:d:\shill\documents\programming\cpp\geolib\clinesegment.cpp
 	"CPoint.h"
 	"CLineSegment.h"
 	"CAngle.h"
 	<cmath>
 	<iostream>
 
-1310010581 d:\shill\documents\programming\cpp\geolib\cpoint.h
+1310152131 d:\shill\documents\programming\cpp\geolib\cpoint.h
 	<iostream>
 	"CAngle.h"
 
-1310010581 d:\shill\documents\programming\cpp\geolib\clinesegment.h
+1310152216 d:\shill\documents\programming\cpp\geolib\clinesegment.h
 	<vector>
 	"CPoint.h"
 
-1310010581 source:d:\shill\documents\programming\cpp\geolib\cparallelogram.cpp
+1310077281 source:d:\shill\documents\programming\cpp\geolib\cparallelogram.cpp
 	"CParallelogram.h"
 
-1310010581 d:\shill\documents\programming\cpp\geolib\cparallelogram.h
+1310077281 d:\shill\documents\programming\cpp\geolib\cparallelogram.h
 	"CPoint.h"
 
-1310010581 source:d:\shill\documents\programming\cpp\geolib\cpoint.cpp
+1310152216 source:d:\shill\documents\programming\cpp\geolib\cpoint.cpp
 	"CPoint.h"
 	"CAngle.h"
 	<iostream>
 
-1310010581 source:d:\shill\documents\programming\cpp\geolib\ctriangle.cpp
+1310077281 source:d:\shill\documents\programming\cpp\geolib\ctriangle.cpp
 	"CTriangle.h"
 	"CLineSegment.h"
 	<iostream>
 	<cmath>
 
-1310010581 d:\shill\documents\programming\cpp\geolib\ctriangle.h
+1310077281 d:\shill\documents\programming\cpp\geolib\ctriangle.h
 	"CPoint.h"
 	"CAngle.h"
 	"CLineSegment.h"
@@ -54,7 +54,7 @@
 	"CTriangle.h"
 	<iostream>
 
-1310092649 source:d:\shill\documents\programming\cpp\geolib\main.cpp
+1310152159 source:d:\shill\documents\programming\cpp\geolib\main.cpp
 	<iostream>
 	<vector>
 	<cmath>
@@ -87,17 +87,17 @@
 
 1310007480 source:d:\shill\documents\programming\cpp\geolib\testprint.cpp
 
-1310092655 d:\shill\documents\programming\cpp\geolib\tests.h
+1310152171 d:\shill\documents\programming\cpp\geolib\tests.h
 	"testAngle.cpp"
 	"testLineSegment1.cpp"
 	"testLineSegment2.cpp"
 	"testPrint.cpp"
 
-1310092729 d:\shill\documents\programming\cpp\geolib\testangle.cpp
+1310155334 d:\shill\documents\programming\cpp\geolib\testangle.cpp
 
-1310091705 d:\shill\documents\programming\cpp\geolib\testlinesegment1.cpp
+1310152044 d:\shill\documents\programming\cpp\geolib\testlinesegment1.cpp
 
-1310091704 d:\shill\documents\programming\cpp\geolib\testlinesegment2.cpp
+1310152044 d:\shill\documents\programming\cpp\geolib\testlinesegment2.cpp
 
-1310091704 d:\shill\documents\programming\cpp\geolib\testprint.cpp
+1310152044 d:\shill\documents\programming\cpp\geolib\testprint.cpp
 
