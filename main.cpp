@@ -11,10 +11,9 @@ using namespace std;
 
 int main()
 {
-  testAngle();
-  testLineSegment1();
-  testLineSegment2();
-  testPrint();
+  for (int i = 0; i < TESTS_AMT; ++i) {
+    autotest(i);
+  }
 
   return 0;
 }

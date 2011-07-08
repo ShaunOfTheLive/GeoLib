@@ -1,9 +1,5 @@
 int testPrint()
 {
-  cout << "***************\n";
-  cout << "** testPrint **\n";
-  cout << "***************";
-  cout << endl;
   Point p1(2,5);
   cout << p1 << endl;
   LineSegment l1(p1,Point(7,8));

@@ -1,9 +1,5 @@
 int testLineSegment1()
 {
-  cout << "**********************\n";
-  cout << "** testLineSegment1 **\n";
-  cout << "**********************";
-  cout << endl;
   cout.precision(2);
   Triangle t11(Point(2,5),Point(7,8),Angle::degrees(39.49),Angle::degrees(28.49));
   cout << t11 << endl;

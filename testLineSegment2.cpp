@@ -1,9 +1,5 @@
 int testLineSegment2()
 {
-  cout << "**********************\n";
-  cout << "** testLineSegment2 **\n";
-  cout << "**********************";
-  cout << endl;
   vector<LineSegment*> lsv;
   /* test constructors */
   lsv.push_back(new LineSegment(Point(2, 4), Point(-3, -5)));

@@ -11,48 +11,55 @@
 #define TEST_PASSED 1
 #define TEST_INACTIVE 2
 #define TEST_UNDEFINED 3
+char func_names[][20] = {"Angle addition test", "Line segment test 1", "Line segment test 2", "Print test"};
 
-char** res_strings = {"TEST_FAILED", "TEST_PASSED", "TEST_INACTIVE", "TEST_UNDEFINED"};
+char res_strings[][20] = {"FAILED", "PASSED", "INACTIVE", "UNDEFINED"};
 
+void tinit(int num) {
+  cout << func_names[num] << ": ";
+}
 void tresult(int ret) {
+  cout << res_strings[ret] << endl;
 }
 
 typedef int (*testFunc)();
 
-testFunc tests[TESTS_AMT] = {NULL};
-
-int nullFunc() {}
+int nullFunc() { return TEST_UNDEFINED; }
 testFunc nullFuncp = &nullFunc;
-int i = 0;
 
 #if (TESTS & TEST_ANGLE)
   #include "testAngle.cpp"
-  tests[i] = &testAngle;
+  testFunc ptestAngle = &testAngle;
 #else
-  tests[i] = nullFuncp;
+  testFunc ptestAngle = nullFuncp;
 #endif
-i++;
 
 #if (TESTS & TEST_LINESEGMENT1)
   #include "testLineSegment1.cpp"
-  tests[i] = &testLineSegment1;
+  testFunc ptestLineSegment1 = &testLineSegment1;
 #else
-  tests[i] = nullFuncp;
+  testFunc ptestLineSegment1 = nullFuncp;
 #endif
-i++;
 
 #if (TESTS & TEST_LINESEGMENT2)
   #include "testLineSegment2.cpp"
-  tests[i] = &testLineSegment2;
+  testFunc ptestLineSegment2 = &testLineSegment2;
 #else
-  tests[i] = nullFuncp;
+  testFunc ptestLineSegment2 = nullFuncp;
 #endif
-i++;
 
 #if (TESTS & TEST_PRINT)
   #include "testPrint.cpp"
-  tests[i] = &testPrint;
+  testFunc ptestPrint = &testPrint;
 #else
-  tests[i] = nullFuncp;
+  testFunc ptestPrint = nullFuncp;
 #endif
-i++;
+
+testFunc tests[] = {ptestAngle, ptestLineSegment1, ptestLineSegment2, ptestPrint};
+
+void autotest(int num) {
+  if (tests[num] != &nullFunc) {
+    tinit(num);
+    tresult((*tests[num])());
+  }
+}
