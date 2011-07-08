@@ -1,4 +1,4 @@
-void testAngle()
+int testAngle()
 {
   cout << "***************\n";
   cout << "** testAngle **\n";
@@ -10,4 +10,6 @@ void testAngle()
   cout << "a2 was " << a2.getDegrees() << endl;
   a2 += Angle::degrees(89);
   cout << "added 89 deg and now it's " << a2.getDegrees() << endl;
+
+  return TEST_UNDEFINED;
 }

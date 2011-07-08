@@ -1,4 +1,4 @@
-void testLineSegment2()
+int testLineSegment2()
 {
   cout << "**********************\n";
   cout << "** testLineSegment2 **\n";
@@ -10,4 +10,6 @@ void testLineSegment2()
   vector<Point> pts;
   pts = lsv[0]->getPoints();
   cout << "LineSegment (2,4),(-3,-5): " << pts[0] << "; " << pts[1] << endl;
+
+  return TEST_UNDEFINED;
 }

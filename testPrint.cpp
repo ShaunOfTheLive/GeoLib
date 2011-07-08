@@ -1,4 +1,4 @@
-void testPrint()
+int testPrint()
 {
   cout << "***************\n";
   cout << "** testPrint **\n";
@@ -10,4 +10,6 @@ void testPrint()
   cout << l1 << endl;
   Triangle t1(l1, Point(4.97,4.56));
   cout << t1 << endl;
+
+  return TEST_UNDEFINED;
 }

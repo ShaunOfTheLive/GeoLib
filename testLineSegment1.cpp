@@ -1,4 +1,4 @@
-void testLineSegment1()
+int testLineSegment1()
 {
   cout << "**********************\n";
   cout << "** testLineSegment1 **\n";
@@ -23,4 +23,6 @@ void testLineSegment1()
   cout << t32 << endl;
   Triangle t33(LineSegment(Point(2,5),5.83,Angle::degrees(30.96)), 3, Angle::degrees(39.49));
   cout << t33 << endl;
+
+  return TEST_UNDEFINED;
 }
