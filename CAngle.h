@@ -15,9 +15,13 @@ public:
   enum Unit{Radians, Degrees};
 
   double getRadians() const;
-  double getDegrees() const;
   void setRadians(double radians);
+  double getDegrees() const;
   void setDegrees(double degrees);
+  double get(Unit unit) const;
+  void set(Unit unit, double angle);
+  Unit getUnit() const;
+  void setUnit(Unit unit);
   double cos() const;
   double sin() const;
 

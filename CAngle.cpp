@@ -29,6 +29,49 @@ double convertToRad(double degrees) {
 Angle::Angle(Unit unit, double angle)
 : unit(unit)
 {
+  set(unit, angle);
+}
+
+double Angle::getRadians() const
+{
+  return angle_r;
+}
+
+double Angle::getDegrees() const
+{
+  return angle_d;
+}
+
+double Angle::get(Unit unit) const
+{
+  double retval;
+  switch(unit) {
+  case Radians:
+    retval = angle_r;
+    break;
+  case Degrees:
+    retval = angle_d;
+    break;
+  default:
+    throw "Unit must be Radians or Degrees";
+  }
+  return retval;
+}
+
+void Angle::setRadians(double radians)
+{
+  angle_r = radians;
+  angle_d = convertToDeg(radians);
+}
+
+void Angle::setDegrees(double degrees)
+{
+  angle_d = degrees;
+  angle_r = convertToRad(degrees);
+}
+
+void Angle::set(Unit unit, double angle)
+{
   switch(unit) {
   case Radians:
     angle_r = angle;
@@ -43,26 +86,14 @@ Angle::Angle(Unit unit, double angle)
   }
 }
 
-double Angle::getRadians() const
+Unit getUnit() const
 {
-  return angle_r;
+  return this->unit;
 }
 
-double Angle::getDegrees() const
+void setUnit(Unit unit)
 {
-  return angle_d;
-}
-
-void Angle::setRadians(double radians)
-{
-  angle_r = radians;
-  angle_d = convertToDeg(radians);
-}
-
-void Angle::setDegrees(double degrees)
-{
-  angle_d = degrees;
-  angle_r = convertToRad(degrees);
+  this->unit = unit;
 }
 
 double Angle::cos() const
