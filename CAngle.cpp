@@ -5,7 +5,8 @@
 /* TODO: allow addition using a double, using the current angle type */
 
 #include <iostream>
-using std::cout; using std::endl;
+using std::cout;
+using std::endl;
 
 #ifndef M_PI
 #define M_PI           3.14159265358979323846
@@ -26,6 +27,7 @@ double convertToRad(double degrees) {
 }
 
 Angle::Angle(Unit unit, double angle)
+: unit(unit)
 {
   switch(unit) {
   case Radians:

@@ -5,6 +5,7 @@ class Angle
 {
   double angle_d;
   double angle_r;
+  Unit unit;
   static double fmod(double x, double y);
   static double convertToDeg(double radians);
   static double convertToRad(double degrees);
