@@ -14,7 +14,7 @@ using std::cout; using std::endl;
 double Angle::fmod(double x, double y) { return x - y * floor(x / y); }
 
 Angle::Angle(double radians) :
-  angler(radians)
+  angle_r(radians)
 {
 }
 
@@ -30,45 +30,45 @@ Angle Angle::degrees(double degrees)
 
 double Angle::getRadians() const
 {
-  return angler;
+  return angle_r;
 }
 
 double Angle::getDegrees() const
 {
-  return angler*180/M_PI;
+  return angle_r*180/M_PI;
 }
 
 void Angle::setRadians(double radians)
 {
-  angler = radians;
+  angle_r = radians;
 }
 
 void Angle::setDegrees(double degrees)
 {
-  angler = degrees*M_PI/180;
+  angle_r = degrees*M_PI/180;
 }
 
 double Angle::cos() const
 {
-  return std::cos(angler);
+  return std::cos(angle_r);
 }
 
 double Angle::sin() const
 {
-  return std::sin(angler);
+  return std::sin(angle_r);
 }
 
 Angle Angle::operator+=(const Angle &rhs)
 {
-  angler += rhs.angler;
-  angler = fmod(angler,2*M_PI);
+  angle_r += rhs.angle_r;
+  angle_r = fmod(angle_r,2*M_PI);
   return *this;
 }
 
 Angle Angle::operator-=(const Angle &rhs)
 {
-  angler -= rhs.angler;
-  angler = fmod(angler,2*M_PI);
+  angle_r -= rhs.angle_r;
+  angle_r = fmod(angle_r,2*M_PI);
   return *this;
 }
 

@@ -3,7 +3,8 @@
 
 class Angle
 {
-  double angler;
+  double angle_d;
+  double angle_r;
   static double fmod(double x, double y);
 public:
   static Angle radians(double radians);
