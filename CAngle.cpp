@@ -30,9 +30,11 @@ Angle::Angle(Unit unit, double angle)
   switch(unit) {
   case Radians:
     angle_r = angle;
+    angle_d = convertToDeg(angle);
     break;
   case Degrees:
     angle_d = angle;
+    angle_r = convertToRad(angle);
     break;
   default:
     throw "Unit must be Radians or Degrees";
@@ -46,17 +48,19 @@ double Angle::getRadians() const
 
 double Angle::getDegrees() const
 {
-  return angle_r*180/M_PI;
+  return angle_d;
 }
 
 void Angle::setRadians(double radians)
 {
   angle_r = radians;
+  angle_d = convertToDeg(radians);
 }
 
 void Angle::setDegrees(double degrees)
 {
-  angle_r = degrees*M_PI/180;
+  angle_d = degrees;
+  angle_r = convertToRad(degrees);
 }
 
 double Angle::cos() const
