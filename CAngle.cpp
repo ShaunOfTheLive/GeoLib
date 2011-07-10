@@ -1,9 +1,6 @@
 #include "CAngle.h"
 #include <cmath>
 
-/* TODO: preserve angle type (degrees, radians) */
-/* TODO: allow addition using a double, using the current angle type */
-
 #include <iostream>
 using std::cout;
 using std::endl;
@@ -27,7 +24,7 @@ double convertToRad(double degrees) {
 }
 
 Angle::Angle(Unit unit, double angle)
-: unit(unit)
+: unit(unit), rollover_d(360), rollover_r(2*M_PI)
 {
   set(unit, angle);
 }
@@ -86,6 +83,16 @@ void Angle::set(Unit unit, double angle)
   }
 }
 
+double get() const
+{
+  return get(getUnit());
+}
+
+void set(double angle)
+{
+  set(getUnit(), angle);
+}
+
 Unit getUnit() const
 {
   return this->unit;
@@ -108,15 +115,15 @@ double Angle::sin() const
 
 Angle Angle::operator+=(const Angle &rhs)
 {
-  angle_r += rhs.angle_r;
-  angle_r = fmod(angle_r,2*M_PI);
+  set(get() + rhs.get());  //angle_r += rhs.angle_r;
+  set(fmod(get(), getUnit() == Degrees? rollover_d: rollover_r)); // angle_r = fmod(angle_r,2*M_PI);
   return *this;
 }
 
 Angle Angle::operator-=(const Angle &rhs)
 {
-  angle_r -= rhs.angle_r;
-  angle_r = fmod(angle_r,2*M_PI);
+  set(get() - rhs.get());  //angle_r -= rhs.angle_r;
+  set(fmod(get(), getUnit() == Degrees? rollover_d: rollover_r)); // angle_r = fmod(angle_r,2*M_PI);
   return *this;
 }
 

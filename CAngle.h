@@ -5,6 +5,8 @@ class Angle
 {
   double angle_d;
   double angle_r;
+  double rollover_d;
+  double rollover_r;
   Unit unit;
   static double fmod(double x, double y);
   static double convertToDeg(double radians);
@@ -20,6 +22,8 @@ public:
   void setDegrees(double degrees);
   double get(Unit unit) const;
   void set(Unit unit, double angle);
+  double get() const;
+  void set(double angle);
   Unit getUnit() const;
   void setUnit(Unit unit);
   double cos() const;
