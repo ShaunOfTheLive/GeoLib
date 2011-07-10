@@ -11,21 +11,32 @@ using std::cout; using std::endl;
 #define M_PI           3.14159265358979323846
 #endif
 
-double Angle::fmod(double x, double y) { return x - y * floor(x / y); }
-
-Angle::Angle(double radians) :
-  angle_r(radians)
-{
+double Angle::fmod(double x, double y) {
+  return x - y * floor(x / y);
 }
 
-Angle Angle::radians(double radians)
-{
-  return Angle(radians);
+double convertToDeg(double radians) {
+  double degrees = radians * 180 / M_PI;
+  return degrees;
 }
 
-Angle Angle::degrees(double degrees)
+double convertToRad(double degrees) {
+  double radians = degrees * M_PI / 180;
+  return radians;
+}
+
+Angle::Angle(Unit unit, double angle)
 {
-  return Angle(degrees*M_PI/180);
+  switch(unit) {
+  case Radians:
+    angle_r = angle;
+    break;
+  case Degrees:
+    angle_d = angle;
+    break;
+  default:
+    throw "Unit must be Radians or Degrees";
+  }
 }
 
 double Angle::getRadians() const

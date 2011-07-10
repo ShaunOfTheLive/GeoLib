@@ -6,9 +6,13 @@ class Angle
   double angle_d;
   double angle_r;
   static double fmod(double x, double y);
+  static double convertToDeg(double radians);
+  static double convertToRad(double degrees);
 public:
-  static Angle radians(double radians);
-  static Angle degrees(double degrees);
+  Angle(Unit unit, double angle);
+
+  enum Unit{Radians, Degrees};
+
   double getRadians() const;
   double getDegrees() const;
   void setRadians(double radians);
@@ -20,8 +24,6 @@ public:
   Angle operator-=(const Angle &rhs);
   const Angle operator+(const Angle &other) const;
   const Angle operator-(const Angle &other) const;
-private:
-  Angle(double radians); /* constructor is private to force use of radians or degrees function */
 };
 
 #endif
