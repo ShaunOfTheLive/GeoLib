@@ -31,12 +31,12 @@ Angle::Angle(Unit unit, double angle)
 
 double Angle::getRadians() const
 {
-  return angle_r;
+  return get(Radians);
 }
 
 double Angle::getDegrees() const
 {
-  return angle_d;
+  return get(Degrees);
 }
 
 double Angle::get(Unit unit) const
