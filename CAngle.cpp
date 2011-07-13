@@ -29,26 +29,6 @@ Angle::Angle(Unit unit, double angle)
   data = &per_unit_data[unit];
 }
 
-double Angle::getRadians() const
-{
-  return get(Radians);
-}
-
-double Angle::getDegrees() const
-{
-  return get(Degrees);
-}
-
-void Angle::setRadians(double radians)
-{
-  set(Radians, radians);
-}
-
-void Angle::setDegrees(double degrees)
-{
-  set(Degrees, degrees);
-}
-
 double Angle::get(Unit unit) const
 {
   setUnit(unit);
@@ -71,6 +51,8 @@ double Angle::get() const
 void Angle::set(double angle)
 {
   data->angle = angle;
+  Unit other_unit = getUnit() == Degrees? Radians: Degrees;
+  per_unit_data[other_unit].angle = convert(getUnit(), other_unit, angle);
 }
 
 Unit Angle::getUnit() const

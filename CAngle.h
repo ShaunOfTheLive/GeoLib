@@ -23,12 +23,6 @@ public:
 
   Angle(Unit unit, double angle);
 
-/* deprecated */
-  double getRadians() const;
-  void setRadians(double radians);
-  double getDegrees() const;
-  void setDegrees(double degrees);
-/* */
   double get(Unit unit) const;
   void set(Unit unit, double angle);
   double get() const;
