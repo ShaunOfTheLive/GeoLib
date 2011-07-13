@@ -1,6 +1,10 @@
 #ifndef CANGLE_H
 #define CANGLE_H
 
+#ifndef M_PI
+#define M_PI           3.14159265358979323846
+#endif
+
 class Angle
 {
   struct per_unit_data

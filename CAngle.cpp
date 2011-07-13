@@ -5,10 +5,6 @@
 using std::cout;
 using std::endl;
 
-#ifndef M_PI
-#define M_PI           3.14159265358979323846
-#endif
-
 double Angle::fmod(double x, double y) {
   return x - y * floor(x / y);
 }
@@ -25,7 +21,13 @@ Angle::Angle(Unit unit, double angle)
   per_unit_data[Degrees].range_max = 360, per_unit_data[Radians].range_max = 2*M_PI,
   per_unit_data[Degrees].circle =    360, per_unit_data[Radians].circle    = 2*M_PI
 {
-  set(unit, angle);
+  data = &per_unit_data[unit];
+  set(angle);
+}
+
+void Angle::setUnit(Unit unit)
+{
+  this->unit = unit;
   data = &per_unit_data[unit];
 }
 
@@ -60,12 +62,6 @@ Unit Angle::getUnit() const
   return this->unit;
 }
 
-void Angle::setUnit(Unit unit)
-{
-  this->unit = unit;
-  data = &per_unit_data[unit];
-}
-
 vector<double> Angle::getRange() const
 {
   vector<double> range;
@@ -78,6 +74,9 @@ void Angle::setRange(double min, double max)
 {
   data->range_min = min;
   data->range_max = max;
+  Unit other_unit = getUnit() == Degrees? Radians: Degrees;
+  per_unit_data[other_unit].range_min = convert(getUnit(), other_unit, min);
+  per_unit_data[other_unit].range_max = convert(getUnit(), other_unit, max);
 }
 
 double Angle::cos() const
