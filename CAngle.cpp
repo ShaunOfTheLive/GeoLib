@@ -5,8 +5,8 @@
 using std::cout;
 using std::endl;
 
-double Angle::fmod(double x, double y) {
-  return x - y * floor(x / y);
+double Angle::fmod(double a, double n, double m) {
+  return a - n * floor((a - m) / n);
 }
 
 double convert(Unit from_unit, Unit to_unit, double angle)

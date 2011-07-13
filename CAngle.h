@@ -17,7 +17,7 @@ class Angle
   per_unit_data* data;
   Unit unit;
 
-  static double fmod(double x, double y);
+  static double fmod(double a, double n, double m = 0);
   static double convert(Unit from_unit, Unit to_unit, double angle);
 
   void setUnit(Unit unit);
