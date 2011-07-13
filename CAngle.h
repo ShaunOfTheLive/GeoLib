@@ -3,10 +3,6 @@
 
 class Angle
 {
-  double angle_d;
-  double angle_r;
-  double rollover_d;
-  double rollover_r;
   struct per_unit_data
   {
     double angle;
