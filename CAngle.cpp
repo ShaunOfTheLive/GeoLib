@@ -31,14 +31,14 @@ Angle::Angle(Unit unit, double angle)
 
 double Angle::get(Unit unit) const
 {
-  setUnit(unit);
-  return get();
+  double angle = per_unit_data[unit].angle;
+  return angle;
 }
 
 /* set(Unit, angle) sets the unit and then calls set(double) */
 void Angle::set(Unit unit, double angle)
 {
-  setUnit(unit);
+  setUnit(unit); // declare that the angle has been set using a new unit
   set(angle);
 }
 
@@ -94,15 +94,15 @@ double Angle::sin() const
 
 Angle Angle::operator+=(const Angle &rhs)
 {
-  set(get() + rhs.get());  //angle_r += rhs.angle_r;
-  set(fmod(get(), data->range_max)); // angle_r = fmod(angle_r,2*M_PI);
+  set(get() + rhs.get());
+  set(fmod(get(), data->range_max));
   return *this;
 }
 
 Angle Angle::operator-=(const Angle &rhs)
 {
-  set(get() - rhs.get());  //angle_r -= rhs.angle_r;
-  set(fmod(get(), data->range_max)); // angle_r = fmod(angle_r,2*M_PI);
+  set(get() - rhs.get());
+  set(fmod(get(), data->range_max));
   return *this;
 }
 
