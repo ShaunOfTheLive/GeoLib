@@ -39,32 +39,20 @@ double Angle::getDegrees() const
   return get(Degrees);
 }
 
-double Angle::get(Unit unit) const
-{
-  double retval;
-  switch(unit) {
-  case Radians:
-    retval = angle_r;
-    break;
-  case Degrees:
-    retval = angle_d;
-    break;
-  default:
-    throw "Unit must be Radians or Degrees";
-  }
-  return retval;
-}
-
 void Angle::setRadians(double radians)
 {
-  angle_r = radians;
-  angle_d = convert(Radians, Degrees, radians);
+  set(Radians, radians);
 }
 
 void Angle::setDegrees(double degrees)
 {
-  angle_d = degrees;
-  angle_r = convert(Degrees, Radians, degrees);
+  set(Degrees, degrees);
+}
+
+double Angle::get(Unit unit) const
+{
+  setUnit(unit);
+  return get();
 }
 
 /* set(Unit, angle) sets the unit and then calls set(double) */

@@ -19,9 +19,9 @@ class Angle
   static double fmod(double x, double y);
   static double convert(Unit from_unit, Unit to_unit, double angle);
 public:
-  Angle(Unit unit, double angle);
-
   enum Unit{Radians, Degrees};
+
+  Angle(Unit unit, double angle);
 
 /* deprecated */
   double getRadians() const;
