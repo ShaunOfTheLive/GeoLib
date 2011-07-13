@@ -100,12 +100,14 @@ void Angle::setRange(double min, double max)
 
 double Angle::cos() const
 {
-  return std::cos(angle_r);
+  double cos = std::cos(get(Radians));
+  return cos;
 }
 
 double Angle::sin() const
 {
-  return std::sin(angle_r);
+  double sin = std::sin(get(Radians));
+  return sin;
 }
 
 Angle Angle::operator+=(const Angle &rhs)
