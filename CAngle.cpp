@@ -6,7 +6,7 @@ using std::cout;
 using std::endl;
 
 double Angle::fmod(double a, double n, double m) {
-  return a - n * floor((a - m) / n);
+  return a - n * floor((a - m) / (n - m));
 }
 
 double convert(Unit from_unit, Unit to_unit, double angle)
@@ -94,14 +94,14 @@ double Angle::sin() const
 Angle Angle::operator+=(const Angle &rhs)
 {
   set(get() + rhs.get());
-  set(fmod(get(), data->range_max));
+  set(fmod(get(), data->range_max, data->range_min));
   return *this;
 }
 
 Angle Angle::operator-=(const Angle &rhs)
 {
   set(get() - rhs.get());
-  set(fmod(get(), data->range_max));
+  set(fmod(get(), data->range_max, data->range_min));
   return *this;
 }
 
