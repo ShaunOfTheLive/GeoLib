@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1310611360 source:d:\shill\documents\programming\cpp\geolib\cangle.cpp
+1310669114 source:d:\shill\documents\programming\cpp\geolib\cangle.cpp
 	"CAngle.h"
 	<cmath>
 	<iostream>
@@ -94,7 +94,7 @@
 	"testLineSegment2.cpp"
 	"testPrint.cpp"
 
-1310611462 d:\shill\documents\programming\cpp\geolib\testangle.cpp
+1310669213 d:\shill\documents\programming\cpp\geolib\testangle.cpp
 
 1310552124 d:\shill\documents\programming\cpp\geolib\testlinesegment1.cpp
 

@@ -24,14 +24,14 @@ Angle::Angle(Unit unit, double angle)
 : unit(unit)
 {
   /* initialize default ranges */
-  data = &per_unit_data[Degrees];
+  data = &(per_unit_data[Degrees]);
   data->range_min = 0;
   data->range_max = 360;
-  data = &per_unit_data[Radians];
+  data = &(per_unit_data[Radians]);
   data->range_min = 0;
   data->range_max = 2*M_PI;
   /* now set data pointer to specified unit */
-  data = &per_unit_data[unit];
+  data = &(per_unit_data[unit]);
   /* set the angle now that the unit has been set */
   set(angle);
 }
@@ -39,7 +39,7 @@ Angle::Angle(Unit unit, double angle)
 void Angle::setUnit(Unit unit)
 {
   this->unit = unit;
-  data = &per_unit_data[unit];
+  data = &(per_unit_data[unit]);
 }
 
 double Angle::get(Unit unit) const
@@ -104,8 +104,10 @@ double Angle::sin() const
 
 Angle Angle::operator+=(const Angle &rhs)
 {
-  set(get() + rhs.get(getUnit()));
-  set(fmod(get(), data->range_max, data->range_min));
+  double new_angle = get() + rhs.get(getUnit());
+  set(new_angle);
+  double fmod_angle = fmod(get(), data->range_max, data->range_min);
+  set(fmod_angle);
   return *this;
 }
 
