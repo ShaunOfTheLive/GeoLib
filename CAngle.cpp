@@ -5,23 +5,34 @@
 using std::cout;
 using std::endl;
 
-double Angle::fmod(double a, double n, double m) {
+double Angle::fmod(double a, double n, double m)
+{
   return a - n * floor((a - m) / (n - m));
 }
 
-double convert(Unit from_unit, Unit to_unit, double angle)
+/* this is static, not part of per_unit_data,
+   since it's used in a static function (convert) */
+double Angle::circle[2] = {2*M_PI, 360};
+
+double Angle::convert(Unit from_unit, Unit to_unit, double angle)
 {
-  double converted = angle * per_unit_data[to_unit].circle / per_unit_data[from_unit].circle;
+  double converted = angle * circle[to_unit] / circle[from_unit];
   return converted;
 }
 
 Angle::Angle(Unit unit, double angle)
-: unit(unit),
-  per_unit_data[Degrees].range_min = 0,   per_unit_data[Radians].range_min = 0,
-  per_unit_data[Degrees].range_max = 360, per_unit_data[Radians].range_max = 2*M_PI,
-  per_unit_data[Degrees].circle =    360, per_unit_data[Radians].circle    = 2*M_PI
+: unit(unit)
 {
+  /* initialize default ranges */
+  data = &per_unit_data[Degrees];
+  data->range_min = 0;
+  data->range_max = 360;
+  data = &per_unit_data[Radians];
+  data->range_min = 0;
+  data->range_max = 2*M_PI;
+  /* now set data pointer to specified unit */
   data = &per_unit_data[unit];
+  /* set the angle now that the unit has been set */
   set(angle);
 }
 
@@ -37,7 +48,7 @@ double Angle::get(Unit unit) const
   return angle;
 }
 
-/* set(Unit, angle) sets the unit and then calls set(double) */
+/* set(Unit, double) sets the unit and then calls set(double) */
 void Angle::set(Unit unit, double angle)
 {
   setUnit(unit); // declare that the angle has been set using a new unit
@@ -49,7 +60,7 @@ double Angle::get() const
   return get(getUnit());
 }
 
-/* set(double) directly sets the angle using the current unit */
+/* set(double) directly sets the angle using the current unit and converts to other unit */
 void Angle::set(double angle)
 {
   data->angle = angle;
@@ -57,7 +68,7 @@ void Angle::set(double angle)
   per_unit_data[other_unit].angle = convert(getUnit(), other_unit, angle);
 }
 
-Unit Angle::getUnit() const
+Angle::Unit Angle::getUnit() const
 {
   return this->unit;
 }

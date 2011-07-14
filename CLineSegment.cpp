@@ -83,7 +83,7 @@ double LineSegment::getOrientation() const
 
 Angle LineSegment::getOrientationA() const
 {
-  return Angle::radians(atan2(point2.getY()-point1.getY(), point2.getX()-point1.getX()));
+  return Angle(Angle::Radians, atan2(point2.getY()-point1.getY(), point2.getX()-point1.getX()));
 }
 
 double LineSegment::getLength() const

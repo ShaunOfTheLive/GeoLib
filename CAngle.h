@@ -1,29 +1,34 @@
 #ifndef CANGLE_H
 #define CANGLE_H
 
+#include <vector>
+using std::vector;
+
 #ifndef M_PI
 #define M_PI           3.14159265358979323846
 #endif
 
 class Angle
 {
-  struct per_unit_data
+public:
+  enum Unit{Radians, Degrees};
+private:
+  struct per_unit_data_t
   {
     double angle;
     double range_min;
     double range_max;
-    double circle;
-  }
-  per_unit_data* data;
+  } per_unit_data[2];
+  per_unit_data_t* data;
   Unit unit;
 
   static double fmod(double a, double n, double m = 0);
   static double convert(Unit from_unit, Unit to_unit, double angle);
 
+  static double circle[2];
+
   void setUnit(Unit unit);
 public:
-  enum Unit{Radians, Degrees};
-
   Angle(Unit unit, double angle);
 
   double get(Unit unit) const;
