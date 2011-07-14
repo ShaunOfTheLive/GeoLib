@@ -1,11 +1,13 @@
 int testAngle()
 {
   bool passed = true;
-  Angle a1 = Angle(Angle::Degrees, 359);
-  Angle a2 = Angle(Angle::Degrees, 2);
+  double test1 = 359.0;
+  double test2 = 2.0;
+  Angle a1 = Angle(Angle::Degrees, test1);
+  Angle a2 = Angle(Angle::Degrees, test2);
   Angle res = a1 + a2;
   double resd = res.get(Angle::Degrees);
-  cout << "359deg + 2deg = " << resd << endl;
+  cout << test1 << " deg + " << test2 << " deg = " << resd << endl;
   if (passed) {
     passed = (fabs(resd - 1) < EPSILON);
   }

@@ -104,21 +104,25 @@ double Angle::sin() const
 
 Angle Angle::operator+=(const Angle &rhs)
 {
-  set(get() + rhs.get());
+  set(get() + rhs.get(getUnit()));
   set(fmod(get(), data->range_max, data->range_min));
   return *this;
 }
 
 Angle Angle::operator-=(const Angle &rhs)
 {
-  set(get() - rhs.get());
+  set(get() - rhs.get(getUnit()));
   set(fmod(get(), data->range_max, data->range_min));
   return *this;
 }
 
 const Angle Angle::operator+(const Angle &other) const
 {
-  return Angle(*this) += other;
+  cout << "Angle " << this->get() << " += Angle " << other.get() << endl;
+  Angle result = *this;
+  result += other;
+  cout << "result " << result.get() << endl;
+  return result;
 }
 
 const Angle Angle::operator-(const Angle &other) const
