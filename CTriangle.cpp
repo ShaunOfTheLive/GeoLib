@@ -39,8 +39,8 @@ Triangle::Triangle(LineSegment l1,            Angle a1, Angle a2) :
 
 void Triangle::init(LineSegment l1,           Angle a1, Angle a2)
 {
-  Angle orientation_l2 = Angle::degrees(l1.getOrientationA().getDegrees() - a1.getDegrees());
-  double length_l2((l1.getLength() * a2.sin()) / Angle::degrees(180 - a1.getDegrees() - a2.getDegrees()).sin());
+  Angle orientation_l2 = Angle(Angle::Degrees, l1.getOrientationA().get(Angle::Degrees) - a1.get(Angle::Degrees));
+  double length_l2((l1.getLength() * a2.sin()) / Angle(Angle::Degrees, 180 - a1.get(Angle::Degrees) - a2.get(Angle::Degrees)).sin());
   LineSegment l2(l1.getPoint1(), length_l2, orientation_l2);
   point3 = l2.getPoint2();
 }
@@ -60,7 +60,7 @@ Triangle::Triangle(LineSegment l1,            int length1, int length2) :
 
 void Triangle::init(LineSegment l1,           int length1, int length2)
 {
-  Angle a1 = Angle::radians(acos((pow(l1.getLength(),2)+pow(length1,2)-pow(length2,2))/(2*l1.getLength()*length1)));
+  Angle a1 = Angle(Angle::Radians, acos((pow(l1.getLength(),2)+pow(length1,2)-pow(length2,2))/(2*l1.getLength()*length1)));
   Angle orientation_l2 = l1.getOrientationA() - a1;
   LineSegment l2(l1.getPoint1(), length1, orientation_l2);
   point3 = l2.getPoint2();

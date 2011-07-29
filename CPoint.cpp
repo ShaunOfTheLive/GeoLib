@@ -4,7 +4,7 @@
 using std::cout;
 
 Point::Point(double x, double y) :
-  x(x), y(y), r(0), th(Angle::radians(0)), polar(false)
+  x(x), y(y), r(0), th(Angle(Angle::Radians,0)), polar(false)
 {
 }
 

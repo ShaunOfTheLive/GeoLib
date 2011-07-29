@@ -1,80 +1,131 @@
 #include "CAngle.h"
 #include <cmath>
 
-/* TODO: preserve angle type (degrees, radians) */
-/* TODO: allow addition using a double, using the current angle type */
-
 #include <iostream>
-using std::cout; using std::endl;
+using std::cout;
+using std::endl;
 
-#ifndef M_PI
-#define M_PI           3.14159265358979323846
-#endif
+#include <cassert>
 
-double Angle::fmod(double x, double y) { return x - y * floor(x / y); }
-
-Angle::Angle(double radians) :
-  angler(radians)
+double Angle::fmod(double a, double n, double m)
 {
+  return a - n * floor((a - m) / (n - m));
 }
 
-Angle Angle::radians(double radians)
+/* this is static, not part of per_unit_data,
+   since it's used in a static function (convert) */
+double Angle::circle[2] = {2*M_PI, 360};
+
+double Angle::convert(Unit from_unit, Unit to_unit, double angle)
 {
-  return Angle(radians);
+  double converted = angle * circle[to_unit] / circle[from_unit];
+  return converted;
 }
 
-Angle Angle::degrees(double degrees)
+Angle::Angle(Unit unit, double angle)
+: unit(unit)
 {
-  return Angle(degrees*M_PI/180);
+  /* initialize default ranges */
+  per_unit_data[Degrees].range_min = 0;
+  per_unit_data[Degrees].range_max = 360;
+
+  per_unit_data[Radians].range_min = 0;
+  per_unit_data[Radians].range_max = 2*M_PI;
+
+  /* set the angle now that the unit has been set */
+  set(angle);
 }
 
-double Angle::getRadians() const
+void Angle::setUnit(Unit unit)
 {
-  return angler;
+  this->unit = unit;
 }
 
-double Angle::getDegrees() const
+double Angle::get(Unit unit) const
 {
-  return angler*180/M_PI;
+  double angle = per_unit_data[unit].angle;
+  return angle;
 }
 
-void Angle::setRadians(double radians)
+/* set(Unit, double) sets the unit and then calls set(double) */
+void Angle::set(Unit unit, double angle)
 {
-  angler = radians;
+  setUnit(unit); // declare that the angle has been set using a new unit
+  set(angle);
 }
 
-void Angle::setDegrees(double degrees)
+double Angle::get() const
 {
-  angler = degrees*M_PI/180;
+  return get(getUnit());
+}
+
+/* set(double) directly sets the angle using the current unit and converts to other unit */
+void Angle::set(double angle)
+{
+  per_unit_data[getUnit()].angle = angle;
+  Unit other_unit = getUnit() == Degrees? Radians: Degrees;
+  per_unit_data[other_unit].angle = convert(getUnit(), other_unit, angle);
+}
+
+Angle::Unit Angle::getUnit() const
+{
+  return this->unit;
+}
+
+vector<double> Angle::getRange() const
+{
+  vector<double> range;
+  range.push_back(per_unit_data[getUnit()].range_min);
+  range.push_back(per_unit_data[getUnit()].range_max);
+  return range;
+}
+
+void Angle::setRange(double min, double max)
+{
+  per_unit_data[getUnit()].range_min = min;
+  per_unit_data[getUnit()].range_max = max;
+  Unit other_unit = getUnit() == Degrees? Radians: Degrees;
+  per_unit_data[other_unit].range_min = convert(getUnit(), other_unit, min);
+  per_unit_data[other_unit].range_max = convert(getUnit(), other_unit, max);
 }
 
 double Angle::cos() const
 {
-  return std::cos(angler);
+  double cos = std::cos(get(Radians));
+  return cos;
 }
 
 double Angle::sin() const
 {
-  return std::sin(angler);
+  double sin = std::sin(get(Radians));
+  return sin;
 }
 
 Angle Angle::operator+=(const Angle &rhs)
 {
-  angler += rhs.angler;
-  angler = fmod(angler,2*M_PI);
+  cout << "operator+=: called with (" << get() << ", " << rhs.get(getUnit()) << ");" << endl;
+  double new_angle = get() + rhs.get(getUnit());
+  double fmod_angle = fmod(new_angle, per_unit_data[getUnit()].range_max, per_unit_data[getUnit()].range_min);
+  cout << "operator+=: fmod(" << new_angle << ", " << per_unit_data[getUnit()].range_max << ", " << per_unit_data[getUnit()].range_min << ") = " << fmod_angle << endl;
+  set(fmod_angle);
+  cout << "operator+=: returning " << get() << endl;
   return *this;
 }
 
 Angle Angle::operator-=(const Angle &rhs)
 {
-  angler -= rhs.angler;
-  angler = fmod(angler,2*M_PI);
+  set(get() - rhs.get(getUnit()));
+  set(fmod(get(), per_unit_data[getUnit()].range_max, per_unit_data[getUnit()].range_min));
   return *this;
 }
 
 const Angle Angle::operator+(const Angle &other) const
 {
-  return Angle(*this) += other;
+  Angle result = *this;
+  cout << "operator+: Calling operator+=(" << result.get() << ", " << other.get() << ");" << endl;
+  result += other;
+  cout << "operator+: result = " << result.get() << endl;
+  return result;
 }
 
 const Angle Angle::operator-(const Angle &other) const
