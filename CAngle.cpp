@@ -5,6 +5,8 @@
 using std::cout;
 using std::endl;
 
+#include <cassert>
+
 double Angle::fmod(double a, double n, double m)
 {
   return a - n * floor((a - m) / (n - m));
@@ -63,7 +65,7 @@ double Angle::get() const
 /* set(double) directly sets the angle using the current unit and converts to other unit */
 void Angle::set(double angle)
 {
-  data->angle = angle;
+  per_unit_data[getUnit()].angle = angle;
   Unit other_unit = getUnit() == Degrees? Radians: Degrees;
   per_unit_data[other_unit].angle = convert(getUnit(), other_unit, angle);
 }
@@ -104,10 +106,12 @@ double Angle::sin() const
 
 Angle Angle::operator+=(const Angle &rhs)
 {
+  cout << "operator+=: called with (" << get() << ", " << rhs.get(getUnit()) << ");" << endl;
   double new_angle = get() + rhs.get(getUnit());
-  set(new_angle);
-  double fmod_angle = fmod(get(), data->range_max, data->range_min);
+  double fmod_angle = fmod(new_angle, data->range_max, data->range_min);
+  cout << "operator+=: fmod(" << new_angle << ", " << data->range_max << ", " << data->range_min << ") = " << fmod_angle << endl;
   set(fmod_angle);
+  cout << "operator+=: returning " << get() << endl;
   return *this;
 }
 
@@ -120,10 +124,10 @@ Angle Angle::operator-=(const Angle &rhs)
 
 const Angle Angle::operator+(const Angle &other) const
 {
-  cout << "Angle " << this->get() << " += Angle " << other.get() << endl;
   Angle result = *this;
+  cout << "operator+: Calling operator+=(" << result.get() << ", " << other.get() << ");" << endl;
   result += other;
-  cout << "result " << result.get() << endl;
+  cout << "operator+: result = " << result.get() << endl;
   return result;
 }
 
