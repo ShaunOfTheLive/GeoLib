@@ -21,7 +21,7 @@ private:
     double range_min;
     double range_max;
   } per_unit_data[2];
-  per_unit_data_t* data;
+
   Unit unit;
 
   static double fmod(double a, double n, double m = 0);

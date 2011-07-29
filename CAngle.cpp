@@ -26,14 +26,12 @@ Angle::Angle(Unit unit, double angle)
 : unit(unit)
 {
   /* initialize default ranges */
-  data = &(per_unit_data[Degrees]);
-  data->range_min = 0;
-  data->range_max = 360;
-  data = &(per_unit_data[Radians]);
-  data->range_min = 0;
-  data->range_max = 2*M_PI;
-  /* now set data pointer to specified unit */
-  data = &(per_unit_data[unit]);
+  per_unit_data[Degrees].range_min = 0;
+  per_unit_data[Degrees].range_max = 360;
+
+  per_unit_data[Radians].range_min = 0;
+  per_unit_data[Radians].range_max = 2*M_PI;
+
   /* set the angle now that the unit has been set */
   set(angle);
 }
@@ -41,7 +39,6 @@ Angle::Angle(Unit unit, double angle)
 void Angle::setUnit(Unit unit)
 {
   this->unit = unit;
-  data = &(per_unit_data[unit]);
 }
 
 double Angle::get(Unit unit) const
@@ -78,15 +75,15 @@ Angle::Unit Angle::getUnit() const
 vector<double> Angle::getRange() const
 {
   vector<double> range;
-  range.push_back(data->range_min);
-  range.push_back(data->range_max);
+  range.push_back(per_unit_data[getUnit()].range_min);
+  range.push_back(per_unit_data[getUnit()].range_max);
   return range;
 }
 
 void Angle::setRange(double min, double max)
 {
-  data->range_min = min;
-  data->range_max = max;
+  per_unit_data[getUnit()].range_min = min;
+  per_unit_data[getUnit()].range_max = max;
   Unit other_unit = getUnit() == Degrees? Radians: Degrees;
   per_unit_data[other_unit].range_min = convert(getUnit(), other_unit, min);
   per_unit_data[other_unit].range_max = convert(getUnit(), other_unit, max);
@@ -108,8 +105,8 @@ Angle Angle::operator+=(const Angle &rhs)
 {
   cout << "operator+=: called with (" << get() << ", " << rhs.get(getUnit()) << ");" << endl;
   double new_angle = get() + rhs.get(getUnit());
-  double fmod_angle = fmod(new_angle, data->range_max, data->range_min);
-  cout << "operator+=: fmod(" << new_angle << ", " << data->range_max << ", " << data->range_min << ") = " << fmod_angle << endl;
+  double fmod_angle = fmod(new_angle, per_unit_data[getUnit()].range_max, per_unit_data[getUnit()].range_min);
+  cout << "operator+=: fmod(" << new_angle << ", " << per_unit_data[getUnit()].range_max << ", " << per_unit_data[getUnit()].range_min << ") = " << fmod_angle << endl;
   set(fmod_angle);
   cout << "operator+=: returning " << get() << endl;
   return *this;
@@ -118,7 +115,7 @@ Angle Angle::operator+=(const Angle &rhs)
 Angle Angle::operator-=(const Angle &rhs)
 {
   set(get() - rhs.get(getUnit()));
-  set(fmod(get(), data->range_max, data->range_min));
+  set(fmod(get(), per_unit_data[getUnit()].range_max, per_unit_data[getUnit()].range_min));
   return *this;
 }
 

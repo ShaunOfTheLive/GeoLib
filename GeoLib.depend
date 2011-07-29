@@ -1,10 +1,11 @@
 # depslib dependency file v1.0
-1311737420 source:d:\shill\documents\programming\cpp\geolib\cangle.cpp
+1311906322 source:d:\shill\documents\programming\cpp\geolib\cangle.cpp
 	"CAngle.h"
 	<cmath>
 	<iostream>
+	<cassert>
 
-1311900894 d:\shill\documents\programming\cpp\geolib\cangle.h
+1311906338 d:\shill\documents\programming\cpp\geolib\cangle.h
 	<vector>
 
 1311737420 source:d:\shill\documents\programming\cpp\geolib\clinesegment.cpp
