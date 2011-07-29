@@ -5,7 +5,7 @@
 	<iostream>
 	<cassert>
 
-1311906338 d:\shill\documents\programming\cpp\geolib\cangle.h
+1311907125 d:\shill\documents\programming\cpp\geolib\cangle.h
 	<vector>
 
 1311737420 source:d:\shill\documents\programming\cpp\geolib\clinesegment.cpp
@@ -95,9 +95,9 @@
 	"testLineSegment2.cpp"
 	"testPrint.cpp"
 
-1311901761 d:\shill\documents\programming\cpp\geolib\testangle.cpp
+1311907132 d:\shill\documents\programming\cpp\geolib\testangle.cpp
 
-1311737420 d:\shill\documents\programming\cpp\geolib\testlinesegment1.cpp
+1311907135 d:\shill\documents\programming\cpp\geolib\testlinesegment1.cpp
 
 1310152044 d:\shill\documents\programming\cpp\geolib\testlinesegment2.cpp
 
