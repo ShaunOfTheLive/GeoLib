@@ -4,7 +4,7 @@
 	<cmath>
 	<iostream>
 
-1310553241 d:\shill\documents\programming\cpp\geolib\cangle.h
+1311737420 d:\shill\documents\programming\cpp\geolib\cangle.h
 	<vector>
 
 1310551918 source:d:\shill\documents\programming\cpp\geolib\clinesegment.cpp
@@ -14,18 +14,18 @@
 	<cmath>
 	<iostream>
 
-1310204416 d:\shill\documents\programming\cpp\geolib\cpoint.h
+1310152131 d:\shill\documents\programming\cpp\geolib\cpoint.h
 	<iostream>
 	"CAngle.h"
 
-1310204416 d:\shill\documents\programming\cpp\geolib\clinesegment.h
+1310152216 d:\shill\documents\programming\cpp\geolib\clinesegment.h
 	<vector>
 	"CPoint.h"
 
-1310204416 source:d:\shill\documents\programming\cpp\geolib\cparallelogram.cpp
+1310077281 source:d:\shill\documents\programming\cpp\geolib\cparallelogram.cpp
 	"CParallelogram.h"
 
-1310204416 d:\shill\documents\programming\cpp\geolib\cparallelogram.h
+1310077281 d:\shill\documents\programming\cpp\geolib\cparallelogram.h
 	"CPoint.h"
 
 1310552011 source:d:\shill\documents\programming\cpp\geolib\cpoint.cpp
@@ -39,7 +39,7 @@
 	<iostream>
 	<cmath>
 
-1310204416 d:\shill\documents\programming\cpp\geolib\ctriangle.h
+1310077281 d:\shill\documents\programming\cpp\geolib\ctriangle.h
 	"CPoint.h"
 	"CAngle.h"
 	"CLineSegment.h"
@@ -55,7 +55,7 @@
 	"CTriangle.h"
 	<iostream>
 
-1310204416 source:d:\shill\documents\programming\cpp\geolib\main.cpp
+1310152159 source:d:\shill\documents\programming\cpp\geolib\main.cpp
 	<iostream>
 	<vector>
 	<cmath>
@@ -88,17 +88,17 @@
 
 1310007480 source:d:\shill\documents\programming\cpp\geolib\testprint.cpp
 
-1310204416 d:\shill\documents\programming\cpp\geolib\tests.h
+1310152171 d:\shill\documents\programming\cpp\geolib\tests.h
 	"testAngle.cpp"
 	"testLineSegment1.cpp"
 	"testLineSegment2.cpp"
 	"testPrint.cpp"
 
-1310669213 d:\shill\documents\programming\cpp\geolib\testangle.cpp
+1311737420 d:\shill\documents\programming\cpp\geolib\testangle.cpp
 
-1310552124 d:\shill\documents\programming\cpp\geolib\testlinesegment1.cpp
+1311737420 d:\shill\documents\programming\cpp\geolib\testlinesegment1.cpp
 
-1310204416 d:\shill\documents\programming\cpp\geolib\testlinesegment2.cpp
+1310152044 d:\shill\documents\programming\cpp\geolib\testlinesegment2.cpp
 
-1310204416 d:\shill\documents\programming\cpp\geolib\testprint.cpp
+1310152044 d:\shill\documents\programming\cpp\geolib\testprint.cpp
 

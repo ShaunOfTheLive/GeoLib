@@ -1,24 +1,26 @@
 int testAngle()
 {
   bool passed = true;
-  double test1 = 359.0;
-  double test2 = 2.0;
-  double test3 = 1.9*M_PI;
-  double test4 = 0.1*M_PI;
+  double deg1 = 359.0;
+  double deg2 = 2.0;
+  double deg3 = 1.0;
+  double rad1 = 1.9*M_PI;
+  double rad2 = 0.2*M_PI;
+  double rad3 = 0.1*M_PI;
   Angle a1 = Angle(Angle::Degrees, test1);
   Angle a2 = Angle(Angle::Degrees, test2);
   Angle res = a1 + a2;
   double resd = res.get(Angle::Degrees);
-  cout << test1 << " deg + " << test2 << " deg = " << resd << endl;
+  cout << deg1 << " deg + " << deg1 << " deg = " << resd << endl;
   if (passed) {
-    passed = (fabs(resd - (test1 + test2 - 360)) < EPSILON);
+    passed = (fabs(resd - (deg1 + deg2 - 360)) < EPSILON);
   }
 
   Angle a3 = Angle(Angle::Degrees, test1);
   a3 += Angle(Angle::Degrees, test2);
   cout << test1 << " deg += " << test2 << " deg: " << a3.get(Angle::Degrees) << endl;
   if (passed) {
-    passed = (fabs(a3.get(Angle::Degrees) - 1) < EPSILON);
+    passed = (fabs(a3.get(Angle::Degrees) - (deg1 + deg2 - 360)) < EPSILON);
   }
 
   cout  << test1 << " deg + " << test2 << " deg to rad = " << res.get(Angle::Radians) << endl;
