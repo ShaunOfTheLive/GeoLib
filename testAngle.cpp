@@ -3,50 +3,56 @@ int testAngle()
   bool passed = true;
   double deg1 = 359.0;
   double deg2 = 2.0;
-  double deg3 = 1.0;
   double rad1 = 1.9*M_PI;
   double rad2 = 0.2*M_PI;
-  double rad3 = 0.1*M_PI;
   Angle a1 = Angle(Angle::Degrees, test1);
   Angle a2 = Angle(Angle::Degrees, test2);
-  Angle res = a1 + a2;
-  double resd = res.get(Angle::Degrees);
-  cout << deg1 << " deg + " << deg1 << " deg = " << resd << endl;
+  Angle a1_p_a2 = a1 + a2;
+
+  cout << deg1 << " deg + " << deg2 << " deg = " << a1_p_a2.get(Angle::Degrees) << endl;
+
   if (passed) {
-    passed = (fabs(resd - (deg1 + deg2 - 360)) < EPSILON);
+    // check that a1 + a2 in degrees is equal to the degree wraparound of addition of deg1 and deg2
+    passed = feq(a1_p_a2.get(Angle::Degrees), deg1 + deg2 - 360);
   }
 
-  Angle a3 = Angle(Angle::Degrees, test1);
-  a3 += Angle(Angle::Degrees, test2);
-  cout << test1 << " deg += " << test2 << " deg: " << a3.get(Angle::Degrees) << endl;
+  Angle a2_pe_a1 = Angle(Angle::Degrees, deg1);
+  a2_pe_a1 += Angle(Angle::Degrees, deg2);
+
+  cout << deg1 << " deg += " << deg2 << " deg: " << a2_pe_a1.get(Angle::Degrees) << endl;
   if (passed) {
-    passed = (fabs(a3.get(Angle::Degrees) - (deg1 + deg2 - 360)) < EPSILON);
+    // check that the angle of a2 += a1 is equal to the degree wraparound of addition of deg1 and deg2
+    passed = feq(a2_pe_a1.get(Angle::Degrees), deg1 + deg2 - 360);
   }
 
   cout  << test1 << " deg + " << test2 << " deg to rad = " << res.get(Angle::Radians) << endl;
   if (passed) {
-    passed = (fabs(res.get(Angle::Radians) - M_PI / 180) < EPSILON);
+    // check that the radian angle of a1_p_a2 is equal to the proper radian amount
+    passed = feq(a1_p_a2.get(Angle::Radians), M_PI / 180 * a1_p_a2.get(Angle::Degrees));
   }
 
   Angle a4 = Angle(Angle::Radians, test3);
   Angle a5 = Angle(Angle::Radians, test4);
-  res = a4 + a5;
-  double resr = res.get(Angle::Radians);
+  a4_p_a5 = a4 + a5;
+
   cout << "1.9pi + 0.2pi = " << resr << endl;
   if (passed) {
-    passed = (fabs(resr - test4) < EPSILON);
+    // check that a4 + a5 in radians is equal to the radian wraparound of addition of rad1 and rad2
+    passed = feq(a4_p_a5.get(Angle::Radians), rad1 + rad2 - 2*M_PI));
   }
 
-  Angle a6 = Angle(Angle::Radians, 1.9*M_PI);
-  a6 += Angle(Angle::Radians, 0.2*M_PI);
-  cout << "1.9pi += 0.2pi: " << a6.get(Angle::Radians) << endl;
+  Angle a5_pe_a4 = Angle(Angle::Radians, 1.9*M_PI);
+  a5_pe_a4+= Angle(Angle::Radians, 0.2*M_PI);
+  cout << "1.9pi += 0.2pi: " << a5_pe_a4.get(Angle::Radians) << endl;
   if (passed) {
-    passed = (fabs(a6.get(Angle::Radians) - 0.1*M_PI) < EPSILON);
+    // check that a5 += a4 in radians is equal to the radian wraparound of addition of rad1 and rad2
+    passed = feq(a5_pe_a4.get(Angle::Radians), rad1 + rad2 - 2*M_PI);
   }
 
   cout << "1.9pi + 0.2pi to deg = " << res.get(Angle::Degrees) << endl;
   if (passed) {
-    passed = (fabs(res.get(Angle::Degrees) - 0.1 * 180) < EPSILON);
+    // check that the degree angle of a4_p_a5 is equal to the proper degree amount
+    passed = feq(a4_p_a5.get(Angle::Degrees), 180 / M_PI * a4_p_a5.get(Angle::Radians));
   }
 
 
