@@ -5,8 +5,6 @@
 #define TEST_ALL 1023
 #define TESTS_AMT 4
 
-#define EPSILON 0.000001
-
 #define TESTS (TEST_ALL & ~TEST_LINESEGMENT1)
 
 #define TEST_FAILED 0

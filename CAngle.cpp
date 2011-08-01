@@ -1,4 +1,6 @@
 #include "CAngle.h"
+#include "math.h"
+
 #include <cmath>
 
 #include <iostream>
@@ -6,11 +8,6 @@ using std::cout;
 using std::endl;
 
 #include <cassert>
-
-double Angle::fmod(double a, double n, double m)
-{
-  return a - n * floor((a - m) / (n - m));
-}
 
 /* this is static, not part of per_unit_data,
    since it's used in a static function (convert) */
