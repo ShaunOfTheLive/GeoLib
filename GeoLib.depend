@@ -108,3 +108,10 @@
 1312240342 d:\shill\documents\programming\cpp\geolib\math.h
 	<cmath>
 
+1312404189 source:d:\shill\documents\programming\cpp\geolib\unit++.cpp
+	<iostream>
+	<string>
+	<unit++/unit++.h>
+	"CAngle.h"
+	"math.h"
+
