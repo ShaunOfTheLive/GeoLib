@@ -10,9 +10,38 @@ using namespace unitpp;
 namespace {
   class CAngleTest: public suite
   {
-    double deg1, deg2, rad1, rad2;
+    double deg1, deg2, deg3;
+    double rad1, rad2, rad3;
     Angle adeg1, adeg2, arad1, arad2;
 
+    void test_constructors()
+    {
+      Angle atestdeg(Angle::Degrees, deg1);
+      Angle atestrad(Angle::Radians, rad1);
+
+      assert_true("construct angle with degrees", feq(atestdeg.get(), deg1));
+      assert_true("construct angle with radians", feq(atestrad.get(), rad1));
+    }
+    void test_getset()
+    {
+      Angle atestdeg(Angle::Degrees, deg1);
+      Angle atestrad(Angle::Radians, rad1);
+      atestdeg.set(deg3);
+      atestrad.set(rad3);
+
+      assert_true("set and get with degrees", feq(atestdeg.get(), deg3));
+      assert_true("set and get with radians", feq(atestrad.get(), rad3));
+    }
+    void test_getset_units()
+    {
+      Angle atestdeg(Angle::Degrees, deg1);
+      Angle atestrad(Angle::Radians, rad1);
+      atestdeg.set(Angle::Degrees, deg3);
+      atestrad.set(Angle::Radians, rad3);
+
+      assert_true("set and get with degrees", feq(atestdeg.get(Angle::Degrees), deg3));
+      assert_true("set and get with radians", feq(atestrad.get(Angle::Radians), rad3));
+    }
     void test_operator_plus()
     {
       Angle adegadd = adeg1 + adeg2;
@@ -33,9 +62,13 @@ namespace {
     }
   public:
     CAngleTest() : suite("CAngle tests"),
-    deg1(359.0), deg2(2.0), rad1(1.9*M_PI), rad2(0.2*M_PI),
+    deg1(359.0), deg2(2.0), deg3(50.0),
+    rad1(1.9*M_PI), rad2(0.2*M_PI), rad3(0.5*M_PI),
     adeg1(Angle::Degrees, deg1), adeg2(Angle::Degrees, deg2), arad1(Angle::Radians, rad1), arad2(Angle::Radians, rad2)
     {
+      add("test_constructors", testcase(this, "Test constructors", &CAngleTest::test_constructors));
+      add("test_getset", testcase(this, "Test getters and setters", &CAngleTest::test_getset));
+      add("test_getset_units", testcase(this, "Test getters and setters specifying native units", &CAngleTest::test_getset_units));
       add("test_operator_plus", testcase(this, "Test operator+", &CAngleTest::test_operator_plus));
       add("test_operator_plus_eq", testcase(this, "Test operator+=", &CAngleTest::test_operator_plus_eq));
       suite::main().add("CAngleTestSuite", this);
