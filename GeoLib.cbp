@@ -46,10 +46,7 @@
 		<Unit filename="CPoint.h" />
 		<Unit filename="CTriangle.cpp" />
 		<Unit filename="CTriangle.h" />
-		<Unit filename="testAngle.cpp">
-			<Option compile="0" />
-			<Option link="0" />
-		</Unit>
+		<Unit filename="testAngle.cpp" />
 		<Unit filename="testLineSegment1.cpp">
 			<Option compile="0" />
 			<Option link="0" />
@@ -62,7 +59,6 @@
 			<Option compile="0" />
 			<Option link="0" />
 		</Unit>
-		<Unit filename="tests.h" />
 		<Extensions>
 			<code_completion />
 			<debugger />
