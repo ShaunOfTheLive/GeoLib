@@ -46,11 +46,18 @@ namespace {
     {
       Angle atestdeg(Angle::Degrees, deg1);
       Angle atestrad(Angle::Radians, rad1);
+
       atestdeg.set(Angle::Degrees, deg3);
       atestrad.set(Angle::Radians, rad3);
 
       assert_true("set with degrees and get with radians", feq(atestdeg.get(Angle::Radians), deg3 * M_PI / 180));
       assert_true("set with radians and get with degrees", feq(atestrad.get(Angle::Degrees), rad3 * 180 / M_PI));
+
+      atestdeg.set(Angle::Radians, rad3);
+      atestrad.set(Angle::Degrees, deg3);
+
+      assert_true("set with radians and get with degrees", feq(atestdeg.get(Angle::Degrees), rad3 * 180 / M_PI));
+      assert_true("set with degrees and get with radians", feq(atestrad.get(Angle::Radians), deg3 * M_PI / 180));
     }
     void test_operator_plus()
     {
