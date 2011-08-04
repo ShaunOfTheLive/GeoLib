@@ -42,6 +42,16 @@ namespace {
       assert_true("set and get with degrees", feq(atestdeg.get(Angle::Degrees), deg3));
       assert_true("set and get with radians", feq(atestrad.get(Angle::Radians), rad3));
     }
+    void test_getset_convert()
+    {
+      Angle atestdeg(Angle::Degrees, deg1);
+      Angle atestrad(Angle::Radians, rad1);
+      atestdeg.set(Angle::Degrees, deg3);
+      atestrad.set(Angle::Radians, rad3);
+
+      assert_true("set with degrees and get with radians", feq(atestdeg.get(Angle::Radians), deg3 * M_PI / 180));
+      assert_true("set with radians and get with degrees", feq(atestrad.get(Angle::Degrees), rad3 * 180 / M_PI));
+    }
     void test_operator_plus()
     {
       Angle adegadd = adeg1 + adeg2;
@@ -69,6 +79,7 @@ namespace {
       add("test_constructors", testcase(this, "Test constructors", &CAngleTest::test_constructors));
       add("test_getset", testcase(this, "Test getters and setters", &CAngleTest::test_getset));
       add("test_getset_units", testcase(this, "Test getters and setters specifying native units", &CAngleTest::test_getset_units));
+      add("test_getset_convert", testcase(this, "Test getters and setters converting from native units", &CAngleTest::test_getset_convert));
       add("test_operator_plus", testcase(this, "Test operator+", &CAngleTest::test_operator_plus));
       add("test_operator_plus_eq", testcase(this, "Test operator+=", &CAngleTest::test_operator_plus_eq));
       suite::main().add("CAngleTestSuite", this);
