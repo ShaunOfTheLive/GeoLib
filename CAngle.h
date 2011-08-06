@@ -6,12 +6,6 @@
 #include <vector>
 using std::vector;
 
-#ifndef M_PI
-#define M_PI           3.14159265358979323846
-#endif
-
-#define feq(x, y) (fabs((x)-(y))<EPSILON)
-
 class Angle
 {
 public:
