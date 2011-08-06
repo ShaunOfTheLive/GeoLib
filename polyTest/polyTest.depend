@@ -1,0 +1,15 @@
+# depslib dependency file v1.0
+1268541841 source:e:\shill\documents\programming projects\cpp\shapeclasses\cline.cpp
+	"CPoint.h"
+	"CLine.h"
+	"CAngle.h"
+	<cmath>
+	<iostream>
+
+1268541840 e:\shill\documents\programming projects\cpp\shapeclasses\cpoint.h
+	<iostream>
+
+1268541839 e:\shill\documents\programming projects\cpp\shapeclasses\cline.h
+
+1268541840 e:\shill\documents\programming projects\cpp\shapeclasses\cangle.h
+
