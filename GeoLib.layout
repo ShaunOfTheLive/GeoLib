@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <CodeBlocks_layout_file>
 	<ActiveTarget name="Debug" />
-	<File name="CAngle.cpp" open="1" top="1" tabpos="7">
-		<Cursor position="482" topLine="0" />
+	<File name="CAngle.cpp" open="1" top="1" tabpos="4">
+		<Cursor position="1796" topLine="87" />
 	</File>
-	<File name="CAngle.h" open="1" top="0" tabpos="8">
-		<Cursor position="180" topLine="0" />
+	<File name="CAngle.h" open="1" top="0" tabpos="5">
+		<Cursor position="684" topLine="6" />
 	</File>
 	<File name="CLineSegment.cpp" open="0" top="0" tabpos="4">
 		<Cursor position="2045" topLine="0" />
@@ -31,22 +31,16 @@
 	<File name="CTriangle.h" open="0" top="0" tabpos="0">
 		<Cursor position="108" topLine="5" />
 	</File>
-	<File name="main.cpp" open="1" top="0" tabpos="1">
-		<Cursor position="199" topLine="0" />
+	<File name="testAngle.cpp" open="1" top="0" tabpos="6">
+		<Cursor position="4092" topLine="64" />
 	</File>
-	<File name="testAngle.cpp" open="1" top="0" tabpos="3">
-		<Cursor position="1369" topLine="0" />
-	</File>
-	<File name="testLineSegment1.cpp" open="1" top="0" tabpos="4">
+	<File name="testLineSegment1.cpp" open="1" top="0" tabpos="1">
 		<Cursor position="24" topLine="0" />
 	</File>
-	<File name="testLineSegment2.cpp" open="1" top="0" tabpos="5">
+	<File name="testLineSegment2.cpp" open="1" top="0" tabpos="2">
 		<Cursor position="25" topLine="0" />
 	</File>
-	<File name="testPrint.cpp" open="1" top="0" tabpos="6">
+	<File name="testPrint.cpp" open="1" top="0" tabpos="3">
 		<Cursor position="18" topLine="0" />
-	</File>
-	<File name="tests.h" open="1" top="0" tabpos="2">
-		<Cursor position="172" topLine="7" />
 	</File>
 </CodeBlocks_layout_file>
