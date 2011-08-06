@@ -77,6 +77,15 @@ namespace {
       assert_true("operator+= with degrees", feq(adegaddeq.get(Angle::Degrees), deg1 + deg2 - 360));
       assert_true("operator+= with radians", feq(aradaddeq.get(Angle::Radians), rad1 + rad2 - 2*M_PI));
     }
+    void test_range_rollover()
+    {
+      adeg1.setRange(5, 250);
+      arad1.setRange(0.3*M_PI, 0.6*M_PI);
+
+      adeg1.set(4);
+
+      assert_true("degrees range >=5; setting 4", feq(adeg1.get(), 249));
+    }
   public:
     CAngleTest() : suite("CAngle tests"),
     deg1(359.0), deg2(2.0), deg3(50.0),
@@ -89,6 +98,7 @@ namespace {
       add("test_getset_convert", testcase(this, "Test getters and setters converting from native units", &CAngleTest::test_getset_convert));
       add("test_operator_plus", testcase(this, "Test operator+", &CAngleTest::test_operator_plus));
       add("test_operator_plus_eq", testcase(this, "Test operator+=", &CAngleTest::test_operator_plus_eq));
+      add("test_range_rollover", testcase(this, "Test operator+=", &CAngleTest::test_range_rollover));
       suite::main().add("CAngleTestSuite", this);
     }
   };
