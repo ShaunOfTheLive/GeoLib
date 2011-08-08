@@ -13,7 +13,7 @@
 
 inline double fmod(double a, double n, double m = 0)
 {
-  return a - n * floor((a - m) / (n - m));
+  return a - m - n * floor((a - m) / (n - m));
 }
 
 /*
