@@ -1,3 +1,5 @@
+// TODO: unary negation operator
+
 #include "CAngle.h"
 #include "math.h"
 
@@ -59,9 +61,10 @@ double Angle::get() const
 /* set(double) directly sets the angle using the current unit and converts to other unit */
 void Angle::set(double angle)
 {
-  per_unit_data[getUnit()].angle = angle;
+  per_unit_data_t& data = per_unit_data[getUnit()];
+  data.angle = fmod(angle, data.range_max, data.range_min);
   Unit other_unit = getUnit() == Degrees? Radians: Degrees;
-  per_unit_data[other_unit].angle = convert(getUnit(), other_unit, angle);
+  per_unit_data[other_unit].angle = convert(getUnit(), other_unit, data.angle);
 }
 
 Angle::Unit Angle::getUnit() const
@@ -100,19 +103,15 @@ double Angle::sin() const
 
 Angle Angle::operator+=(const Angle &rhs)
 {
-  cout << "operator+=: called with (" << get() << ", " << rhs.get(getUnit()) << ");" << endl;
   double new_angle = get() + rhs.get(getUnit());
-  double fmod_angle = fmod(new_angle, per_unit_data[getUnit()].range_max, per_unit_data[getUnit()].range_min);
-  cout << "operator+=: fmod(" << new_angle << ", " << per_unit_data[getUnit()].range_max << ", " << per_unit_data[getUnit()].range_min << ") = " << fmod_angle << endl;
-  set(fmod_angle);
-  cout << "operator+=: returning " << get() << endl;
+  set(new_angle);
   return *this;
 }
 
 Angle Angle::operator-=(const Angle &rhs)
 {
-  set(get() - rhs.get(getUnit()));
-  set(fmod(get(), per_unit_data[getUnit()].range_max, per_unit_data[getUnit()].range_min));
+  double new_angle = get() - rhs.get(getUnit());
+  set(new_angle);
   return *this;
 }
 

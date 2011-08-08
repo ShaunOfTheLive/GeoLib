@@ -46,6 +46,7 @@
 		<Unit filename="CPoint.h" />
 		<Unit filename="CTriangle.cpp" />
 		<Unit filename="CTriangle.h" />
+		<Unit filename="math.h" />
 		<Unit filename="testAngle.cpp" />
 		<Unit filename="testLineSegment1.cpp">
 			<Option compile="0" />
