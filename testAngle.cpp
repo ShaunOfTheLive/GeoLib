@@ -79,13 +79,21 @@ namespace {
     }
     void test_range_rollover()
     {
-      adeg1.setRange(5, 250);
-      arad1.setRange(0.3*M_PI, 0.6*M_PI);
+      Angle rdeg = adeg1;
+      Angle rrad = arad1;
+      rdeg.setRange(5, 250);
+      rrad.setRange(0.3*M_PI, 0.6*M_PI);
 
-      adeg1.set(4);
+      rdeg.set(4);
 
-      cout << "angle = " << adeg1.get() << endl;
-      assert_true("degrees range >=5; setting 4", feq(adeg1.get(), 249));
+      cout << "angle = " << rdeg.get() << endl;
+      assert_true("degrees range >=5; setting 4", feq(rdeg.get(), 249));
+    }
+    void test_negation()
+    {
+      Angle ndeg = -adeg1;
+      cout << "ndeg = " << ndeg.get() << endl;
+      assert_true("negation", feq(ndeg.get(), 1));
     }
   public:
     CAngleTest() : suite("CAngle tests"),
@@ -99,7 +107,8 @@ namespace {
       add("test_getset_convert", testcase(this, "Test getters and setters converting from native units", &CAngleTest::test_getset_convert));
       add("test_operator_plus", testcase(this, "Test operator+", &CAngleTest::test_operator_plus));
       add("test_operator_plus_eq", testcase(this, "Test operator+=", &CAngleTest::test_operator_plus_eq));
-      add("test_range_rollover", testcase(this, "Test operator+=", &CAngleTest::test_range_rollover));
+      add("test_range_rollover", testcase(this, "Test range rollover", &CAngleTest::test_range_rollover));
+      add("test_negation", testcase(this, "Test negation", &CAngleTest::test_negation));
       suite::main().add("CAngleTestSuite", this);
     }
   };
