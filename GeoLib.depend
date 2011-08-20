@@ -1,12 +1,12 @@
 # depslib dependency file v1.0
-1312616477 source:d:\shill\documents\programming\cpp\geolib\cangle.cpp
+1312801402 source:d:\shill\documents\programming\cpp\geolib\cangle.cpp
 	"CAngle.h"
 	"math.h"
 	<cmath>
 	<iostream>
 	<cassert>
 
-1312613854 d:\shill\documents\programming\cpp\geolib\cangle.h
+1312801041 d:\shill\documents\programming\cpp\geolib\cangle.h
 	"math.h"
 	<vector>
 
@@ -83,7 +83,7 @@
 	"CLineSegment.h"
 	"CTriangle.h"
 
-1312791676 source:d:\shill\documents\programming\cpp\geolib\testangle.cpp
+1312801298 source:d:\shill\documents\programming\cpp\geolib\testangle.cpp
 	<iostream>
 	<string>
 	<unit++/unit++.h>
@@ -110,7 +110,7 @@
 
 1310152044 d:\shill\documents\programming\cpp\geolib\testprint.cpp
 
-1312614829 d:\shill\documents\programming\cpp\geolib\math.h
+1312800730 d:\shill\documents\programming\cpp\geolib\math.h
 	<cmath>
 
 1312404189 source:d:\shill\documents\programming\cpp\geolib\unit++.cpp
