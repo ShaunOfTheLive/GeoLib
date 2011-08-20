@@ -42,6 +42,9 @@ public:
   Angle operator-=(const Angle &rhs);
   const Angle operator+(const Angle &other) const;
   const Angle operator-(const Angle &other) const;
+
+  /* unary negation operator */
+  friend Angle operator-(const Angle &angle);
 };
 
 #endif

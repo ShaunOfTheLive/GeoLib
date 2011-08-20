@@ -118,13 +118,17 @@ Angle Angle::operator-=(const Angle &rhs)
 const Angle Angle::operator+(const Angle &other) const
 {
   Angle result = *this;
-  cout << "operator+: Calling operator+=(" << result.get() << ", " << other.get() << ");" << endl;
   result += other;
-  cout << "operator+: result = " << result.get() << endl;
   return result;
 }
 
 const Angle Angle::operator-(const Angle &other) const
 {
   return Angle(*this) -= other;
+}
+
+/* unary negation operator */
+Angle operator-(const Angle &angle)
+{
+  return Angle(angle.getUnit(), -(angle.get()));
 }
