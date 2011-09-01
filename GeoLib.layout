@@ -4,8 +4,8 @@
 	<File name="CAngle.cpp" open="1" top="0" tabpos="4">
 		<Cursor position="3034" topLine="93" />
 	</File>
-	<File name="CAngle.h" open="1" top="0" tabpos="5">
-		<Cursor position="265" topLine="0" />
+	<File name="CAngle.h" open="1" top="1" tabpos="5">
+		<Cursor position="265" topLine="23" />
 	</File>
 	<File name="CLineSegment.cpp" open="0" top="0" tabpos="4">
 		<Cursor position="2045" topLine="0" />
@@ -34,8 +34,8 @@
 	<File name="math.h" open="1" top="0" tabpos="7">
 		<Cursor position="247" topLine="0" />
 	</File>
-	<File name="testAngle.cpp" open="1" top="1" tabpos="6">
-		<Cursor position="3364" topLine="74" />
+	<File name="testAngle.cpp" open="1" top="0" tabpos="6">
+		<Cursor position="3717" topLine="93" />
 	</File>
 	<File name="testLineSegment1.cpp" open="1" top="0" tabpos="1">
 		<Cursor position="24" topLine="0" />
